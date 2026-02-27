@@ -1,0 +1,7 @@
+cd /mnt/d/belajar-programming/Laravel/webrtc_libas = masuk direktori
+
+./vendor/bin/sail up -d 
+./vendor/bin/sail down
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev
