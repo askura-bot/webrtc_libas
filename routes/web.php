@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\StreamController;
 use App\Http\Controllers\Officer\LiveController;
+use App\Http\Controllers\StreamLocationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +26,9 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout')->mid
 // Officer
 Route::middleware(['auth', 'officer'])->prefix('officer')->name('officer.')->group(function () {
     Route::get('/live', [LiveController::class, 'index'])->name('live');
+    // Lokasi stream
+    Route::post('/stream/location', [StreamLocationController::class, 'store'])->name('stream.location');
+    Route::get('/geocode',          [StreamLocationController::class, 'geocode'])->name('geocode');
 });
 
 // Admin
@@ -34,6 +38,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/credentials', [CredentialController::class, 'index'])->name('credentials');
     Route::put('/credentials/officer', [CredentialController::class, 'updateOfficer'])->name('credentials.officer');
     Route::put('/credentials/admin', [CredentialController::class, 'updateAdmin'])->name('credentials.admin');
+    Route::get('/stream/location/{streamId}', [StreamLocationController::class, 'show'])->name('stream.location');
+    
 });
 
 Route::get('/test-stream', function () {

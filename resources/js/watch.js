@@ -1,3 +1,4 @@
+// watch.js
 import { WebRTCAdaptor } from '@antmedia/webrtc_adaptor';
 
 const AMS_WS = "ws://localhost:5080/LiveApp/websocket";
