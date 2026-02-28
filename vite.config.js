@@ -11,8 +11,13 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
+        // host: '0.0.0.0',
+        // hmr: {
+        //     host: '8j4tbfq5-80.asse.devtunnels.ms',
+        // }
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
+        
     },
 });
